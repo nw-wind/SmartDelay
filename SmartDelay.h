@@ -1,3 +1,9 @@
+#if ARDUINO >= 100
+ #include <Arduino.h>
+#else
+ #include <WProgram.h>
+#endif
+
 #ifndef SMART_DELAY_H
 #define SMART_DELAY_H
 
