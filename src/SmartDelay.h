@@ -1,7 +1,7 @@
 #ifndef SMART_DELAY_H
 #define SMART_DELAY_H
 
-claass SmartDelay {
+class SmartDelay {
   private:
     unsigned long smMicros;
     unsigned long smLast;
