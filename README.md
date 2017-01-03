@@ -11,7 +11,7 @@ I use this class for non-blocking delays or cooperative multitasking emulation.
       if (var.Now()) {
         // The action after delay.
         // This code is executed each "delay_in_microseconds".
-        // After this call the variable has been resetted for next delay. See Wait() method.
+        // The *var* has been resetted for next delay automatically. See Wait() method.
       }
       ...
     }
@@ -20,7 +20,7 @@ I use this class for non-blocking delays or cooperative multitasking emulation.
     
     old=var.Set(new_delay_micros);  // Set new delay interval and returns the old one.
     
-    old=var.Wait(); Reset delay from right now.
+    old=var.Wait(); Reset delay timer right now. Holds Now() for the next same period.
 
 The method Now() returns FALSE when the waiting time is not reached. It returns true if the internal timer is over and resets the timer again.
 
