@@ -9,7 +9,8 @@ int SmartDelay::Now() {
   // Важно помнить про переполнение целого!
   if (mcs - smLast >= smMicros) {
     smLast = mcs;
-    return true;
+    if (state==SMART_DELAY_START) return true;
+    else return false;
   } else {
     return false;
   }
@@ -29,8 +30,17 @@ unsigned long SmartDelay::Wait() {
 }
 unsigned long SmartDelay::Reset() {
   unsigned long old = smMicros;
-  smLast = 0;
+  smLast = 0; // про переполнение целого помнить!
+  return old;
+}
+unsigned long SmartDelay::Start() {
+  unsigned long old = smMicros;
+  state=SMART_DELAY_START;
+  return old;
+}
+unsigned long SmartDelay::Stop() {
+  unsigned long old = smMicros;
+  state=SMART_DELAY_STOP;
   return old;
 }
 // end of Smart Delay class definition
-
