@@ -24,7 +24,12 @@ unsigned long SmartDelay::Set(unsigned long tick) {
 }
 unsigned long SmartDelay::Wait() {
   unsigned long old = smMicros;
-  smMicros = micros();
+  smLast = micros();
+  return old;
+}
+unsigned long SmartDelay::Reset() {
+  unsigned long old = smMicros;
+  smLast = 0;
   return old;
 }
 // end of Smart Delay class definition
