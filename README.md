@@ -21,6 +21,8 @@ I use this class for non-blocking delays or cooperative multitasking emulation.
     old=var.Set(new_delay_micros);  // Set new delay interval and returns the old one.
     
     old=var.Wait(); Reset delay timer right now. Holds Now() for the next same period.
+    
+    old=var.Reset(); Let Now() return True next call.
 
 The method Now() returns FALSE when the waiting time is not reached. It returns true if the internal timer is over and resets the timer again.
 
@@ -29,3 +31,5 @@ The method Get() just returns the current waiting interval.
 The method Set() used for changing waiting time of fly. It returns the old timer.
 
 The method Wait() returns the waiting time and reset the internal timer. It is useful to hold the timer. It prevents the method Now() to work. 
+
+The method Reset() drops internal timer with no action. The next call of Now() returns True.
