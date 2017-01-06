@@ -33,5 +33,5 @@ void loop () {
     digitalWrite(5,l5state);
     l5state=(l5state==LOW?HIGH:LOW);
   }
-  if (digitaRead(2)) l3.Wait();
+  if (digitalRead(2)) l3.Wait();
 }

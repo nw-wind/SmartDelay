@@ -1,5 +1,6 @@
 #include <SmartDelay.h>
 
+//SmartDelay::SmartDelay() {}
 SmartDelay::SmartDelay(unsigned long tick) {
   smMicros = tick;
 }

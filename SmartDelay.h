@@ -16,6 +16,7 @@ class SmartDelay {
     unsigned long smLast;
     byte state=SMART_DELAY_START;
   public:
+    inline SmartDelay() {}
     SmartDelay(unsigned long tick);
     ~SmartDelay();
     int Now();
