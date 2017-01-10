@@ -8,7 +8,7 @@
 class SmartDelay {
   private:
     enum SMART_DELAY_STATE {
-      SMART_DELAY_START,
+      SMART_DELAY_START=0,
       SMART_DELAY_STOP
     };
 
@@ -16,12 +16,12 @@ class SmartDelay {
     unsigned long smLast;
     unsigned char state;
 
-                  SmartDelay();
-                  SmartDelay(const SmartDelay& rhs);
-                  SmartDelay& operator= (const SmartDelay& rhs);
+    SmartDelay();
+    SmartDelay(const SmartDelay& rhs);
+    SmartDelay& operator= (const SmartDelay& rhs);
 
   public:
-                  SmartDelay(unsigned long tick);
+    SmartDelay(unsigned long tick);
 
     int           Now();
     unsigned long Get() const;
