@@ -1,26 +1,30 @@
-#if ARDUINO >= 100
- #include <Arduino.h>
-#else
- #include <WProgram.h>
-#endif
-
 #ifndef SMART_DELAY_H
 #define SMART_DELAY_H
 
-#define SMART_DELAY_START 0
-#define SMART_DELAY_STOP  1
+#if ARDUINO >= 100
+ #include <Arduino.h>
+#endif
 
 class SmartDelay {
   private:
+    enum SMART_DELAY_STATE {
+      SMART_DELAY_START,
+      SMART_DELAY_STOP
+    };
+
     unsigned long smMicros;
     unsigned long smLast;
-    byte state=SMART_DELAY_START;
+    unsigned char state;
+
+                  SmartDelay();
+                  SmartDelay(const SmartDelay& rhs);
+                  SmartDelay& operator= (const SmartDelay& rhs);
+
   public:
-    inline SmartDelay() {}
-    SmartDelay(unsigned long tick);
-    ~SmartDelay();
-    int Now();
-    unsigned long Get();
+                  SmartDelay(unsigned long tick);
+
+    int           Now();
+    unsigned long Get() const;
     unsigned long Set(unsigned long tick);
     unsigned long Wait();
     unsigned long Reset();
