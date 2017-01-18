@@ -14,9 +14,9 @@ void setup() {
   pinMode(5,OUTPUT);
 }
 
-SmartDelay l3(800000); // blink 800ms
-SmartDelay l4(1100000); // blink 1100ms
-SmartDelay l5(230000); // blink 230ms
+SmartDelay l3(800000UL); // blink 800ms
+SmartDelay l4(1100000UL); // blink 1100ms
+SmartDelay l5(230000UL); // blink 230ms
 unsigned char l3state = LOW;
 unsigned char l4state = LOW;
 unsigned char l5state = LOW;
