@@ -16,11 +16,10 @@ class SmartDelay {
     unsigned long smLast;
     unsigned char state;
 
-    SmartDelay();
+  public:
+    SmartDelay(){};
     SmartDelay(const SmartDelay& rhs);
     SmartDelay& operator= (const SmartDelay& rhs);
-
-  public:
     SmartDelay(unsigned long tick);
 
     int           Now();
