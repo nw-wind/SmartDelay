@@ -1,0 +1,16 @@
+{
+  "name": "SmartDelay",
+  "keywords": "delay, timer, oop",
+  "description": "The SmartDelay class for non blocking delays in Arduino sketches.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nw-wind/SmartDelay"
+  },
+  "version": "1.0.0",
+  "authors": {
+    "name": "Sergei Keler",
+    "url": "https://github.com/nw-wind"
+  },
+  "frameworks": "arduino",
+  "platforms": "*"
+}
