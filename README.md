@@ -37,3 +37,31 @@ The method Reset() drops internal timer with no action. The next call of Now() r
 The method Stop() diallow Now to return True.
 
 The mothod Start() allow Now to work.
+
+====
+
+Объектный вариант использования.
+
+Есть виртуальный метод Process(), который надо переопределить. Этот метод будет вызываться каждый раз, когда приходит время, то есть, срабатывает встроенная Now(). Это позволяет не писать в loop слишком много.
+```
+class MyProc : public SmartDelay {
+  public:
+    void Process() {
+      // что-то делается здесь
+    }
+};
+
+#define P 3
+MyProc p[P];
+
+void setup () {
+  for (int i=0; i<P; i++) p[i].Set(100000UL*i);
+}
+
+void loop() {
+  for (int i=0; i<P; i++) p[i].run();
+}
+```
+В примере методы pX.Process() будут выполняться асинхронно с разной периодичностью.
+
+В проекте сделать ещё контейнер процессов. 
