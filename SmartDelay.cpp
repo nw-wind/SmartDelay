@@ -53,5 +53,5 @@ unsigned long SmartDelay::Stop() {
 void SmartDelay::run() {
   if (Now()) Process();
 }
-virtual void SmartDelay::Process() {}
+void SmartDelay::Process() {}
 // end of Smart Delay class definition
