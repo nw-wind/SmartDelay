@@ -23,11 +23,22 @@ class MyProc : public SmartDelay {
     }
 };
 
-MyProc p1("proc0", 1000000UL);
-MyProc p2("zopa1", 2000000UL);
-MyProc p3("yuxa2", 3000000UL);
+class MyProcUn : public SmartDelay {
+  private:
+    int counter;
+  public:
+    MyProcUn(unsigned long c) : SmartDelay(c) {};
+    void Process() {
+      counter++;
+      Serial << "Process " << "Noname" << " counter " << counter << endl;
+    }
+};
 
-COOPTASK(c, &p1, &p2, &p3);
+MyProc p1("proc0", 1000000UL), p2("zopa1", 2000000UL);
+MyProc p3("yuxa2", 3000000UL);
+MyProcUn p4(1000000UL);
+
+COOPTASK(c, &p1, &p2, &p3, &p4);
 
 void setup () {
   Serial.begin(115200);
