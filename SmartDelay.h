@@ -29,6 +29,9 @@ class SmartDelay {
     unsigned long Reset();
     unsigned long Stop();
     unsigned long Start();
+ 
+    // OOP methods
+    virtual void Process();
 };
 
 #endif
