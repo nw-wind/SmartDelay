@@ -7,15 +7,15 @@ template<class T> inline Print &operator <<(Print &obj, T arg) {
 
 #include "SmartDelay.h"
 
-
 class MyProc : public SmartDelay {
   private:
     char *name;
     int counter;
   public:
-    void begin(const char *p, int c) {
+    MyProc(const char *p, unsigned long c) {
       name = p;
-      counter = c;
+      counter = 0;
+      Set(c);
     }
     void Process() {
       counter++;
@@ -23,18 +23,17 @@ class MyProc : public SmartDelay {
     }
 };
 
-#define P 3
-MyProc p[P];
+MyProc p1("proc0", 1000000UL);
+MyProc p2("zopa1", 2000000UL);
+MyProc p3("yuxa2", 3000000UL);
+
+COOPTASK(c, &p1, &p2, &p3);
 
 void setup () {
   Serial.begin(115200);
-  p[0].begin("proc0", 1);
-  p[1].begin("zopa1", 1);
-  p[2].begin("yuxa2", 1);
-  for (int i = 0; i < P; i++) p[i].Set(1000000UL * (i+1));
+  Serial.println("Ready");
 }
 
 void loop() {
-  for (int i = 0; i < P; i++) p[i].run();
-  //delay(100);
+  c.run();
 }
