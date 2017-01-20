@@ -1,9 +1,11 @@
-
+// Это для << в сторону Serial :)
 template<class T> inline Print &operator <<(Print &obj, T arg) {
   obj.print(arg);
   return obj;
 }
 #define endl "\n"
+
+// Собственно прога
 
 #include "SmartDelay.h"
 
