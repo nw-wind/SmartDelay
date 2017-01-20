@@ -17,7 +17,10 @@ class SmartDelay {
     unsigned char state;
 
   public:
-    SmartDelay(){};
+    SmartDelay(){
+      smMicros = 0;
+      state    = SMART_DELAY_START;
+    };
     SmartDelay(const SmartDelay& rhs);
     SmartDelay& operator= (const SmartDelay& rhs);
     SmartDelay(unsigned long tick);
@@ -31,7 +34,8 @@ class SmartDelay {
     unsigned long Start();
  
     // OOP methods
-    virtual void Process();
+    void run(); // to pun into loop()
+    virtual void Process(); // to overload
 };
 
 #endif
