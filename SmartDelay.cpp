@@ -48,4 +48,10 @@ unsigned long SmartDelay::Stop() {
   state = SMART_DELAY_STOP;
   return old;
 }
+
+// OOP methods
+void SmartDelay::run() {
+  if (Now()) Process();
+}
+virtual void SmartDelay::Process() {}
 // end of Smart Delay class definition
