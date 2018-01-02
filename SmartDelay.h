@@ -32,6 +32,9 @@ class SmartDelay {
     unsigned long Reset();
     unsigned long Stop();
     unsigned long Start();
+
+    // ms is better as mks
+    unsigned long setMs(unsigned long tick) { return Set(tick*1000UL); } 
  
     // OOP methods
     void run(); // to pun into loop()
